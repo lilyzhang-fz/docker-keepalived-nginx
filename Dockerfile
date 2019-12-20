@@ -3,12 +3,13 @@ FROM debian:buster-slim
 LABEL maintainer="lily <zhanglily.fz@gmail.com>"
 
 ENV KEEPALIVED_VERSION 1:2.0.10-1
-RUN apt-get update && \
-    apt-get install --no-install-recommends --no-install-suggests -y keepalived=${KEEPALIVED_VERSION} && \
-    rm -rf /var/lib/apt/lists/*
-
 COPY keepalived /etc/keepalived/
 COPY docker-entrypoint.sh /entrypoint.sh
+
+RUN apt-get update && \
+    apt-get install --no-install-recommends --no-install-suggests -y keepalived=${KEEPALIVED_VERSION} && \
+    rm -rf /var/lib/apt/lists/* && \
+    chmod 755 /entrypoint.sh
 
 ENV NGINX_VERSION   1.17.6
 ENV NJS_VERSION     0.3.7
