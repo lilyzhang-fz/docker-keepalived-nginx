@@ -7,7 +7,7 @@ COPY keepalived /etc/keepalived/
 COPY docker-entrypoint.sh /entrypoint.sh
 
 RUN apt-get update && \
-    apt-get install --no-install-recommends --no-install-suggests -y keepalived=${KEEPALIVED_VERSION} && \
+    apt-get install --no-install-recommends --no-install-suggests -y keepalived=${KEEPALIVED_VERSION} procps vim && \
     rm -rf /var/lib/apt/lists/* && \
     chmod 755 /entrypoint.sh
 
