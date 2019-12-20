@@ -48,4 +48,5 @@ fi
 fi
 
 # Run
-nginx -g 'daemon off;' && /usr/sbin/keepalived -P -C -d -D -S 7 -f /etc/keepalived/keepalived.conf --dont-fork --log-console
+nginx;
+/usr/sbin/keepalived -f /etc/keepalived/keepalived.conf --dont-fork --log-console
