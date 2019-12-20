@@ -11,6 +11,7 @@ EOF
   " > $1
 }
 
+if [ ! -f '/etc/keepalived/keepalived.conf' ]; then
 replace_vars '/etc/keepalived/keepalived.conf' '/etc/keepalived/10_keepalived.conf'
 replace_vars '/etc/keepalived/notify.sh' '/etc/keepalived/10_notify.sh'
 replace_vars '/etc/keepalived/health.sh' '/etc/keepalived/10_health.sh'
@@ -27,7 +28,7 @@ cat << EOF >> /etc/keepalived/keepalived.conf
   lb_kind $LB_KIND
   persistence_timeout 50
   protocol TCP
-  ha_suspend
+  ha_suspend  
 EOF
 
 for j in $REAL_IP
@@ -43,6 +44,7 @@ done
 echo "}" >> /etc/keepalived/keepalived.conf
 done
 }
+fi
 fi
 
 # Run
