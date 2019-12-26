@@ -49,4 +49,4 @@ fi
 
 # Run
 nginx
-nohup /usr/sbin/keepalived -f /etc/keepalived/keepalived.conf --dont-fork --log-console &
+/usr/sbin/keepalived -f /etc/keepalived/keepalived.conf --dont-fork --log-console
