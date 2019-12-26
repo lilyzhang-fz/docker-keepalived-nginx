@@ -48,5 +48,5 @@ fi
 fi
 
 # Run
-nginx;
-nohup /usr/sbin/keepalived -f /etc/keepalived/keepalived.conf --dont-fork --log-console &;
+nginx
+nohup /usr/sbin/keepalived -f /etc/keepalived/keepalived.conf --dont-fork --log-console &
