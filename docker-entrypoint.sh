@@ -28,7 +28,7 @@ cat << EOF >> /etc/keepalived/keepalived.conf
   lb_kind $LB_KIND
   persistence_timeout 50
   protocol TCP
-  ha_suspend  
+  ha_suspend
 EOF
 
 for j in $REAL_IP
@@ -49,4 +49,4 @@ fi
 
 # Run
 nginx;
-/usr/sbin/keepalived -f /etc/keepalived/keepalived.conf --dont-fork --log-console
+nohup /usr/sbin/keepalived -f /etc/keepalived/keepalived.conf --dont-fork --log-console &;
